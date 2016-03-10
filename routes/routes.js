@@ -49,9 +49,11 @@ passport.use(new LocalStrategy( {
         if(!user)
           // if the user is not exist
           return done(null, false, {message: "The user is not exist"});
-        else if(!bcrypt.compareSync(req.body.password, user.password))
-          // if password does not match
-          return done(null, false, {message: "Wrong password"});
+        else if(!bcrypt.compare(req.body.password, user.password), function(err, res){
+                // if password does not match
+                 return done(null, false, {message: "Wrong password"});
+        })
+
         else
           // if everything is OK, return null as the error
           // and the authenticated user
