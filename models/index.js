@@ -5,8 +5,8 @@ var path      = require("path");
 var Sequelize = require("sequelize");
 var sequelize = new Sequelize('db',null, null,
 {
-    dialect: 'sqlite',
-    storage: 'db.sqlite',
+    dialect: 'mysql',
+    storage: 'db',
     logging: false,
 })
 
