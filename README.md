@@ -1,5 +1,5 @@
 # react-webpack-boilterplate
-React and webpack config, ready to go
+React and node config, ready to go
 
 npm install
 
