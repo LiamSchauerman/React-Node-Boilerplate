@@ -6,13 +6,15 @@ var browserHistory = ReactRouter.browserHistory;
 var IndexRoute = ReactRouter.IndexRoute;
 var Main = require('../components/Main');
 var Home = require("../components/Home");
+var countedContainer = require("../containers/countedContainer");
+
 
 
 
 var routes = (
  <Router history={browserHistory}>
     <Route path='/' component={Main}>
-      <IndexRoute component={Home} />
+      <IndexRoute component={countedContainer} />
     </Route>
   </Router>
 );

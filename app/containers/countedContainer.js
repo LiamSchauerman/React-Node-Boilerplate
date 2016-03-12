@@ -1,5 +1,8 @@
 var React = require('react');
 var countedHelpers = require('../utils/theCountedHelpers');
+var Counted = require('../components/Counted');
+
+
 
 var countedContainer = React.createClass({
   contextTypes: {
@@ -12,17 +15,17 @@ var countedContainer = React.createClass({
     }
   },
   componentDidMount: function () {
-    githubHelpers.getCounted()
-    .then(function(counted)){
-      console.log(counted);
-    }
+    countedHelpers.getCounted()
+    .then(function(counted){
+      this.setState({
+          countedInfo: counted,
+          isLoading: false
+        })
+    }.bind(this))
   },
   render: function () {
     return (
-      <ConfirmBattle
-        isLoading={this.state.isLoading}
-        onInitiateBattle={this.handleInitiateBattle}
-        playersInfo={this.state.playersInfo} />
+        <Counted isLoading={this.state.isLoading} countedInfo={this.state.countedInfo} />
     )
   }
 });
